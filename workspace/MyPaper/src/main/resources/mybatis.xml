@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+	"http:mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="jdbc.properties"></properties>
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<setting name="aggressiveLazyLoading" value="false"/>
+		<setting name="mapUnderscoreToCamelCase" value="true"/>	
+		<!-- 设置resultMap的自动映射级别为NONE(禁止自动匹配) -->
+	<!-- <setting name="autoMappingBehavior" value="NONE"/> -->
+	</settings>
+	<typeAliases>
+		<package name="com.cn.lyl.pojo"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${name}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>		
+		</environment>
+	</environments>
+	<mappers>
+		<mapper resource="com/cn/lyl/dao/SensorLogMapper.xml"/>
+		<mapper resource="com/cn/lyl/dao/SensorLocalMapper.xml"/>
+	</mappers>
+	
+
+
+
+</configuration>
